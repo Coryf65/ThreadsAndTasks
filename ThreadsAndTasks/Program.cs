@@ -1,7 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿// See https://youtu.be/J0mcYVxJEl0?t=908
+
+using ThreadsAndTasks;
 
 Console.WriteLine("Checking out threading and tasks");
 
-Task task1 = new(() => Console.WriteLine($"Thread number: {Thread.CurrentThread.ManagedThreadId}."));
-task1.Start();
-task1.Wait()
+SimpleTask mytask = new();
+
+ExampleWhenAll example1 = new();
+
+Console.ReadLine();
