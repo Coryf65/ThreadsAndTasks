@@ -8,4 +8,6 @@ SimpleTask mytask = new();
 
 ExampleWhenAll example1 = new();
 
+
+
 Console.ReadLine();
