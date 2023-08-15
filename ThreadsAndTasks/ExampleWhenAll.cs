@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace ThreadsAndTasks;
 
@@ -13,11 +14,11 @@ public class ExampleWhenAll
     
     private async Task Example1()
     {
-        Console.WriteLine("Starting Example1, the one by one way...");
+        Logger.Info(MethodBase.GetCurrentMethod(),"Starting Example1, the one by one way...");
         Stopwatch stopWatch = new();
         List<string> names = new() {"Felipe", "Claudia", "Robert", "Rajan"};
 
-        Console.WriteLine("it is inefficient going one by one");
+        Logger.Info(MethodBase.GetCurrentMethod(),"it is inefficient going one by one");
         stopWatch.Start();
 
         foreach (var name in names)
@@ -34,11 +35,11 @@ public class ExampleWhenAll
     
     private async Task Example2()
     {
-        Console.WriteLine("Starting Example2, the better example...");
+        Logger.Info(MethodBase.GetCurrentMethod(),"Starting Example2, the better example...");
         Stopwatch stopWatch = new();
         List<string> names = new() {"Felipe", "Claudia", "Robert", "Rajan"};
 
-        Console.WriteLine("GO!");
+        Logger.Info(MethodBase.GetCurrentMethod(),"GO!");
         stopWatch.Start();
 
         // validate each name in our list
@@ -62,31 +63,31 @@ public class ExampleWhenAll
     private async Task Method1(string name)
     {
         await Task.Delay(500);
-        Console.WriteLine($"Method 1: {name}");
+        Logger.Info(MethodBase.GetCurrentMethod(),$"Method 1: {name}");
     }
     
     private async Task Method2(string name)
     {
         await Task.Delay(500);
-        Console.WriteLine($"Method 2: {name}");
+        Logger.Info(MethodBase.GetCurrentMethod(),$"Method 2: {name}");
     }
     
     private async Task Method3(string name)
     {
         await Task.Delay(500);
-        Console.WriteLine($"Method 3: {name}");
+        Logger.Info(MethodBase.GetCurrentMethod(),$"Method 3: {name}");
     }
     
     private async Task Method4(string name)
     {
         await Task.Delay(500);
-        Console.WriteLine($"Method 4: {name}");
+        Logger.Info(MethodBase.GetCurrentMethod(),$"Method 4: {name}");
     }
     
     private void WriteTime(int elapsedSeconds, ConsoleColor color)
     {
         Console.ForegroundColor = color;
-        Console.WriteLine($"Duration: {elapsedSeconds} seconds");
+        Logger.Info(MethodBase.GetCurrentMethod(),$"Duration: {elapsedSeconds} seconds");
         Console.ForegroundColor = ConsoleColor.White;
     }
 }

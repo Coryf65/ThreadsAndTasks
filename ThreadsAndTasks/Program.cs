@@ -8,6 +8,6 @@ SimpleTask mytask = new();
 
 ExampleWhenAll example1 = new();
 
-
+ThreadsExample threads = new();
 
 Console.ReadLine();
